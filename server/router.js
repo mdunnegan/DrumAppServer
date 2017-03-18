@@ -7,7 +7,7 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = function(app) {
 	app.get('/', requireAuth, function(req, res) {
-		res.send({ hi: 'there' });
+		res.send({ message: 'Super secred code is ABC123' });
 	});
 
 	// before a user will ever see the signin route, they'll run through the local strategy middleware

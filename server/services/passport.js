@@ -11,22 +11,16 @@ const localOptions = { usernameField: 'email' }; // where passport can find the 
 const localLogin = new LocalStrategy(localOptions, function(email, password, done){
 	// Verify this username and password, call done with the user
 
-	console.log("in local login")
-
 	User.findOne({ email: email }, function(err, user) {
 
-		console.log("1")
 		if (err) { return done(err); }
-		console.log("2")
-		if (!user) { return done(null, false); }
 
-		console.log("3")
+		if (!user) { return done(null, false); }
 
 		// compare passwords
 		user.comparePassword(password, function(err, isMatch) {
 			if (err) { return done(err); }
 			if (!isMatch) { return done(null, false); }
-			console.log("passwords match")
 			return done(null, user);
 		});
 	});

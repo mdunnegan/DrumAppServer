@@ -1,4 +1,5 @@
 const Authentication = require('./controllers/authentication');
+const Users = require('./controllers/users');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -13,4 +14,6 @@ module.exports = function(app) {
 	// before a user will ever see the signin route, they'll run through the local strategy middleware
 	app.post('/signin', requireSignin, Authentication.signin);
 	app.post('/signup', Authentication.signup);
+
+	app.get('/users', Users.getUsers)
 }

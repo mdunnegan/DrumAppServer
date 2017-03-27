@@ -11,3 +11,13 @@ exports.getUsers = function(req, res, next) {
 	})
 
 }
+
+exports.getUserIdByEmail = function(email) {
+	User.findOne({email: email}, '_id', function(err, user){
+		if (err) {
+			return res.status(422).send({ error: 'Cannot find your email address' });
+		}
+		return user;
+	})
+	return null;
+}

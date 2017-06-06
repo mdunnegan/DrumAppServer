@@ -37,8 +37,8 @@ exports.createTab = function(req, res, next) {
 
 exports.getTabsByEmail = function(req, res, next) {
 
-	const email = req.body.email;
-
+	const email = req.query.email;
+	
 	UsersController.getUserIdByEmail(email, function(creatorId, error) {
 
 		if (error) {

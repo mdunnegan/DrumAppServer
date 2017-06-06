@@ -12,12 +12,12 @@ exports.getUsers = function(req, res, next) {
 
 }
 
-exports.getUserIdByEmail = function(email) {
+exports.getUserIdByEmail = function(email, callback) {
 	User.findOne({email: email}, '_id', function(err, user){
 		if (err) {
-			return res.status(422).send({ error: 'Cannot find your email address' });
+			callback(null, "Cannot find email address");
+			return;
 		}
-		return user;
-	})
-	return null;
+		callback(user._id);
+	});
 }

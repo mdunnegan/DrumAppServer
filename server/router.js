@@ -18,4 +18,5 @@ module.exports = function(app) {
 
 	app.get('/users', Users.getUsers);
 	app.post('/create', Tab.createTab);
+	app.get('/music', Tab.getTabsByEmail);
 }

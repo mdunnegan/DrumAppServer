@@ -15,9 +15,10 @@ mongoose.connect('mongodb://localhost:auth/auth'); // auth is the name of our da
 
 // App setup (Express)
 // middleware gets passed any incoming request
+app.use(bodyParser.json({ type: '*/*' })); // bodyParser is a middleware. Parses request as if it were JSON no matter what type it is
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(morgan('combined')); // morgan is a logging middleware
 app.use(cors());
-app.use(bodyParser.json({ type: '*/*' })); // bodyParser is a middleware. Parses request as if it were JSON no matter what type it is
 router(app);
 
 // Server setup (Getting Express to talk to outside world)

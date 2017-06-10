@@ -9,9 +9,10 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const config = require('config');
 
 // DB setup
-mongoose.connect('mongodb://localhost:auth/auth'); // auth is the name of our database
+mongoose.connect(config.database);
 
 // App setup (Express)
 // middleware gets passed any incoming request

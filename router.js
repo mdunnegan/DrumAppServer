@@ -1,6 +1,6 @@
 const Authentication = require('./controllers/authentication');
 const Users = require('./controllers/users');
-const Tab = require('./controllers/Tab');
+const Tab = require('./controllers/tab');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
